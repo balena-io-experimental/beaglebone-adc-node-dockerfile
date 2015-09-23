@@ -1,5 +1,7 @@
 ## Analog Input with Beaglebone and Resin.io
 
+#### **--This will only work on resin.io images downloaded after 22-09-2015--**
+
 This example demonstrates how to read an analog voltage on a [resin.io](https://resin.io/) enabled Beaglebone board.
 One of the first things you will notice if you look at the [adc.js](/adc.js) file
 is that we don't use the regular bonescript or octalbonescript.
