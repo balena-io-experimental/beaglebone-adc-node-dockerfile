@@ -6,18 +6,16 @@ console.log("starting ADC script...")
   // no pinmode is required for analogRead as those pins are dedicated.
 var pin = 'P9_33'; //the pin to operate on
 
-setInterval(b.analogRead(pin, function(err, value) {
-  if (err) {
-    console.error(err.message);
-    return;
-  }
-  console.log(value); // value is floating point number between 0 and 1.
-}), 3000);
+var readADC = function(callback) {
+  b.analogRead(pin, function(err, value) {
+    if (err) {
+      console.error(err.message);
+      callback(err);
+    }
+    console.log('Analog Value: ' + value); // value is floating point number between 0 and 1.
+    console.log('Voltage: ' + value * 1.8 + ' V')
+    callback(value);
+  });
+};
 
-b.analogRead(pin, function(err, value) {
-  if (err) {
-    console.error(err.message);
-    return;
-  }
-  console.log(value); // value is floating point number between 0 and 1.
-});
+setTimeout(readADC, 3000);
