@@ -17,4 +17,4 @@ var readADC = function() {
   });
 };
 
-setTimeout(readADC, 3000);
+setInterval(readADC, 3000);
